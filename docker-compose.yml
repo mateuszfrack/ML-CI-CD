@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # Nasza aplikacja ML
+  ml-api:
+    build: .
+    container_name: ml_api_compose
+    ports:
+      - "8000:8000"
+    networks:
+      - ml-network
+    depends_on:
+      - redis-db
+
+  # Dodatkowy serwis - baza Redis
+  redis-db:
+    image: "redis:alpine"
+    container_name: redis_db_compose
+    ports:
+      - "6379:6379"
+    networks:
+      - ml-network
+
+# Wspólna sieć dockerowa
+networks:
+  ml-network:
+    driver: bridge

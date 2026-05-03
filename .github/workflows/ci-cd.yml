@@ -24,7 +24,7 @@ jobs:
       run: |
         pytest test_model.py
 
-  # ZADANIE 3: Opcjonalne budowanie Dockera po udanych testach
+  # ZAD 3
   build-and-push:
     needs: test 
     runs-on: ubuntu-latest
@@ -44,4 +44,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/${{ github.repository }}/ml-api-image:latest
+        tags: ghcr.io/mateuszfrack/ml-ci-cd/ml-api-image:latest

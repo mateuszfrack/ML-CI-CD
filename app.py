@@ -28,7 +28,7 @@ def predict(data: PredictRequest):
 
 @app.get("/info")
 def get_info():
-    # DODANO: Pobieranie zmiennej środowiskowej
+    # Pobieranie zmiennej środowiskowej
     app_version = os.getenv("APP_VERSION", "Wersja domyślna (brak zmiennej)")
     return {
         "model_type": "LinearRegression",
